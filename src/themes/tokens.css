@@ -1,0 +1,57 @@
+/* Spacing, type and motion tokens shared by every theme. Themes only set colours. */
+:root {
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-ui: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* 8 px spacing scale (4 px for hairline adjustments only) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+  --text-2xl: 40px;
+
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-piece: 350ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+
+  --topbar-h: 56px;
+  --panel-w: 280px;
+  --gutter: 24px;
+  --board-max-h: 760px;
+
+  /* Neutral UI defaults; each theme overrides these. */
+  --ui-bg: #10161c;
+  --ui-surface: #1b232b;
+  --ui-surface-2: #242e38;
+  --ui-text: #eef2f5;
+  --ui-text-muted: #a9b4be;
+  --ui-border: rgba(255, 255, 255, 0.12);
+  --ui-accent: #f2c48d;
+  --ui-accent-text: #1b1206;
+  --ui-focus: #f2c48d;
+  --ui-scrim: rgba(4, 10, 16, 0.55);
+  --board-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 700px) {
+  :root {
+    --gutter: 16px;
+  }
+}

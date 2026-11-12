@@ -1,0 +1,89 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 8, 12, 0.45);
+  animation: fade var(--dur-base) var(--ease) both;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(400px, 92vw);
+  display: flex;
+  flex-direction: column;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  border-left: 1px solid var(--ui-border);
+  box-shadow: -16px 0 40px rgba(0, 0, 0, 0.3);
+  animation: slide var(--dur-base) var(--ease) both;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--ui-border);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-5);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.body h3 {
+  margin: var(--space-5) 0 var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ui-text-muted);
+}
+
+.body h3:first-child {
+  margin-top: 0;
+}
+
+.body p,
+.body ul {
+  margin: 0 0 var(--space-3);
+}
+
+.body ul {
+  padding-left: var(--space-5);
+}
+
+.body li + li {
+  margin-top: var(--space-1);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}

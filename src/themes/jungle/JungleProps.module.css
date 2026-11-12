@@ -1,0 +1,343 @@
+/* Placement: around the edges, clear of the title (top centre) and the cards (centre). */
+.toucan,
+.parrot,
+.monkey,
+.sloth,
+.python {
+  position: absolute;
+}
+
+.toucan svg,
+.parrot svg,
+.monkey svg,
+.sloth svg,
+.python svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.toucan {
+  left: 2cqw;
+  top: 22cqh;
+  width: clamp(64px, 7cqw, 130px);
+}
+
+.parrot {
+  left: 0;
+  top: 2cqh;
+  width: clamp(42px, 4cqw, 76px);
+  animation: fly 61.3s linear infinite;
+}
+
+.monkey {
+  right: 4cqw;
+  top: 12cqh;
+  width: clamp(42px, 4.4cqw, 82px);
+}
+
+.sloth {
+  right: 1.5cqw;
+  top: 47cqh;
+  width: clamp(84px, 8.5cqw, 160px);
+}
+
+.python {
+  right: 1.5cqw;
+  bottom: 7cqh;
+  width: clamp(110px, 11cqw, 210px);
+}
+
+/* Palette tones. */
+.dark {
+  fill: #0e2e1c;
+}
+
+.cream {
+  fill: #f4efc4;
+}
+
+.beak {
+  fill: #e8742c;
+}
+
+.beakShade {
+  fill: #c25a1e;
+}
+
+.ring {
+  fill: #a9cf5e;
+}
+
+.red {
+  fill: #c8323c;
+}
+
+.branch {
+  fill: #4a3b2c;
+}
+
+.branchShade {
+  fill: #2f271e;
+}
+
+.leaf {
+  fill: #2f7d3e;
+}
+
+.leafLight {
+  fill: #6fae45;
+}
+
+.vine {
+  fill: #1b5a34;
+}
+
+.fur {
+  fill: #6b4e36;
+}
+
+.tan {
+  fill: #b8946a;
+}
+
+.face {
+  fill: #d9c3a0;
+}
+
+.eye {
+  fill: #1f1a14;
+}
+
+.tail,
+.limb {
+  fill: none;
+  stroke: #6b4e36;
+  stroke-linecap: round;
+}
+
+.tail {
+  stroke-width: 4;
+}
+
+.limb {
+  stroke-width: 5;
+}
+
+.slothFur {
+  fill: #8a7a5e;
+}
+
+.slothMask {
+  fill: #e2d8bc;
+}
+
+.slothPatch {
+  fill: #6b5a44;
+}
+
+.slothLimb {
+  fill: none;
+  stroke: #7a6a50;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.coil {
+  fill: none;
+  stroke: #6fae45;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.spots {
+  fill: #a9cf5e;
+}
+
+.tongueLine {
+  fill: none;
+  stroke: #c8323c;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+/* Motion: transforms only, each part turning about its own joint, mostly at rest. */
+.toucanHead,
+.toucanBlink,
+.wing,
+.monkeySwing,
+.monkeyHead,
+.slothHead,
+.slothBlink,
+.coil,
+.tongue {
+  transform-box: fill-box;
+}
+
+.toucanHead {
+  transform-origin: 30% 90%;
+  animation: tilt 10.3s ease-in-out infinite;
+}
+
+.toucanBlink {
+  transform-origin: center;
+  animation: blink 8.9s linear infinite;
+}
+
+.wing {
+  transform-origin: 30% 95%;
+  animation: flap 0.34s ease-in-out infinite alternate;
+}
+
+.monkeySwing {
+  transform-origin: 50% 0%;
+  animation: swing 5.6s ease-in-out infinite;
+}
+
+.monkeyHead {
+  transform-origin: 50% 20%;
+  animation: lookAround 12.7s ease-in-out infinite;
+}
+
+.slothHead {
+  transform-origin: 80% 50%;
+  animation: slowTurn 29.3s ease-in-out infinite;
+}
+
+.slothBlink {
+  transform-origin: center;
+  animation: blink 9.7s linear infinite;
+}
+
+.coil {
+  transform-origin: center;
+  animation: breathe 4.7s ease-in-out infinite;
+}
+
+.breathB {
+  animation-delay: 0.6s;
+}
+
+.breathC {
+  animation-delay: 1.2s;
+}
+
+.tongue {
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  animation: flick 12.1s linear infinite;
+}
+
+@keyframes tilt {
+  0%,
+  70%,
+  84%,
+  100% {
+    transform: rotate(0);
+  }
+  74%,
+  80% {
+    transform: rotate(-9deg);
+  }
+}
+
+@keyframes blink {
+  0%,
+  46%,
+  49%,
+  100% {
+    transform: scaleY(1);
+  }
+  47.5% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes flap {
+  from {
+    transform: rotate(-30deg);
+  }
+  to {
+    transform: rotate(22deg);
+  }
+}
+
+@keyframes fly {
+  0%,
+  40% {
+    transform: translate(-12cqw, 2cqh);
+  }
+  44% {
+    transform: translate(50cqw, 0);
+  }
+  48.2%,
+  100% {
+    transform: translate(112cqw, 3cqh);
+  }
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(4deg);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes lookAround {
+  0%,
+  78%,
+  92%,
+  100% {
+    transform: rotate(0);
+  }
+  81%,
+  84% {
+    transform: rotate(14deg);
+  }
+  87%,
+  89% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes slowTurn {
+  0%,
+  80%,
+  100% {
+    transform: rotate(0);
+  }
+  86%,
+  92% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.05);
+  }
+}
+
+@keyframes flick {
+  0%,
+  60%,
+  64%,
+  100% {
+    transform: scaleX(0);
+  }
+  61%,
+  63% {
+    transform: scaleX(1);
+  }
+}

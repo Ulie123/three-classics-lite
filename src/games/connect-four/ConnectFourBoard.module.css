@@ -1,0 +1,144 @@
+.board {
+  display: block;
+  overflow: visible;
+  border-radius: var(--radius-lg);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.frame {
+  fill: var(--c4-frame);
+}
+
+/* A dark lip inside each hole reads as an inner shadow. */
+.rims circle {
+  fill: none;
+  stroke: rgba(0, 12, 18, 0.45);
+  stroke-width: 3;
+}
+
+.disc {
+  transition: opacity var(--dur-base) var(--ease);
+}
+
+.dim {
+  opacity: 0.45;
+}
+
+/* Gravity: accelerate down, land, then one small settle bounce. */
+.dropping {
+  animation: drop var(--drop-ms) var(--ease-in) both;
+}
+
+@keyframes drop {
+  0% {
+    transform: translate(var(--x), var(--from-y));
+  }
+  78% {
+    transform: translate(var(--x), var(--y));
+    animation-timing-function: ease-out;
+  }
+  89% {
+    transform: translate(var(--x), calc(var(--y) - 9px));
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translate(var(--x), var(--y));
+  }
+}
+
+.last {
+  fill: none;
+  stroke: rgba(233, 246, 248, 0.75);
+  stroke-width: 3;
+  stroke-dasharray: 6 6;
+  pointer-events: none;
+}
+
+.win {
+  fill: none;
+  stroke: #fbfdff;
+  stroke-width: 5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.preview {
+  opacity: 0.92;
+  transition: transform var(--dur-fast) var(--ease);
+  pointer-events: none;
+}
+
+.shake {
+  animation: shake 300ms var(--ease);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    translate: 0;
+  }
+  25% {
+    translate: -8px;
+  }
+  75% {
+    translate: 8px;
+  }
+}
+
+.column {
+  cursor: pointer;
+  outline: none;
+}
+
+.column[aria-disabled='true'] {
+  cursor: default;
+}
+
+.focusRing {
+  fill: none;
+  stroke: var(--ui-focus);
+  stroke-width: 4;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.column:focus-visible .focusRing {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropping {
+    animation: appear 120ms linear both;
+  }
+
+  .win {
+    animation: none;
+  }
+
+  .preview {
+    transition: none;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}

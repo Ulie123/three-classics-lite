@@ -1,0 +1,233 @@
+/* Placement: the big pines stand on the far shore of the lake, the fox on the near bank. */
+.pines,
+.fox {
+  position: absolute;
+}
+
+.pines svg,
+.fox svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.pines {
+  left: -2cqw;
+  bottom: 12cqh;
+  width: clamp(130px, 13cqw, 240px);
+}
+
+.fox {
+  left: max(0.8cqw, calc(var(--gutter-mid) - clamp(110px, 11.5cqw, 200px) / 2));
+  bottom: 0;
+  width: clamp(110px, 11.5cqw, 200px);
+}
+
+/* Palette: pine blues, snow with blue shadow, a warm cream fox. */
+.tree {
+  fill: #2c4161;
+}
+
+.farTree {
+  fill: #4a6488;
+}
+
+.trunk {
+  fill: #3b2f2a;
+}
+
+.snow,
+.bank {
+  fill: #eef3f8;
+}
+
+.snowShade,
+.bankShade {
+  fill: #b9cbe0;
+}
+
+.farSnow {
+  fill: #e3ebf4;
+}
+
+.farShade {
+  fill: #b5c7dc;
+}
+
+.print {
+  fill: #a9bdd6;
+}
+
+.fur {
+  fill: #f3efe6;
+}
+
+.furLight {
+  fill: #f8f5ee;
+}
+
+.furShade {
+  fill: #ddd6c8;
+}
+
+.tailShade {
+  fill: #c9c2b4;
+}
+
+.earInner {
+  fill: #dcc6b8;
+}
+
+.dark {
+  fill: #2b2a33;
+}
+
+/* Motion: transforms and opacity only; the first frame of every loop is the resting pose. */
+.clump,
+.puff,
+.tail,
+.head,
+.earBack,
+.blink {
+  transform-box: fill-box;
+}
+
+.clump {
+  animation: slide 23.7s ease-in infinite;
+}
+
+.puff {
+  opacity: 0;
+  transform-origin: center;
+  animation: puff 23.7s ease-out infinite;
+}
+
+.tail {
+  transform-origin: 100% 0%;
+  animation: swish 7.3s ease-in-out infinite;
+}
+
+.earBack {
+  transform-origin: 40% 100%;
+  animation: twitch 6.7s ease-in-out infinite;
+}
+
+.blink {
+  transform-origin: center;
+  animation: slowBlink 9.9s ease-in-out infinite;
+}
+
+.head {
+  transform-origin: 90% 88%;
+  animation: lookUp 59.3s ease-in-out infinite;
+}
+
+@keyframes slide {
+  0%,
+  85% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  88% {
+    opacity: 1;
+    transform: translate(7px, 9px);
+  }
+  92% {
+    opacity: 0;
+    transform: translate(12px, 62px);
+  }
+  96% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes puff {
+  0%,
+  90.5% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  92.5% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  96%,
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes swish {
+  0%,
+  80%,
+  92%,
+  100% {
+    transform: rotate(0);
+  }
+  84% {
+    transform: rotate(-5deg);
+  }
+  88% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes twitch {
+  0%,
+  86%,
+  94%,
+  100% {
+    transform: rotate(0);
+  }
+  88% {
+    transform: rotate(12deg);
+  }
+  91% {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes slowBlink {
+  0%,
+  58%,
+  70%,
+  100% {
+    transform: scaleY(1);
+  }
+  62%,
+  66% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes lookUp {
+  0%,
+  88%,
+  97.5%,
+  100% {
+    transform: rotate(0);
+  }
+  90%,
+  95% {
+    transform: rotate(12deg);
+  }
+}
+
+/* Card thumbnails: snowy pines and the fox by the lake, clear of the emblem. */
+[data-mode='thumbnail'] .pines {
+  left: -4cqw;
+  bottom: 14cqh;
+  width: 40cqw;
+}
+
+[data-mode='thumbnail'] .fox {
+  left: 0;
+  width: 34cqw;
+}

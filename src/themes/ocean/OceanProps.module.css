@@ -1,0 +1,425 @@
+/* Placement: heroes in the left gutter, reef life in the gap between the board and the side panel. */
+.chest,
+.seahorse,
+.school,
+.reefFish,
+.reefBed {
+  position: absolute;
+}
+
+.chest svg,
+.seahorse svg,
+.school svg,
+.reefBed svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chest {
+  left: max(1.2cqw, calc(var(--gutter-mid) - clamp(64px, 7cqw, 120px) - 4px));
+  bottom: 0;
+  width: clamp(64px, 7cqw, 120px);
+}
+
+.seahorse {
+  left: max(9.5cqw, calc(var(--gutter-mid) + 16px));
+  bottom: -1cqh;
+  width: clamp(32px, 3.4cqw, 56px);
+  transform-origin: 50% 100%;
+  animation: stemSway 8.3s ease-in-out infinite alternate;
+}
+
+.school {
+  left: 0;
+  top: 30cqh;
+  width: clamp(80px, 8cqw, 140px);
+  animation: swim 31.3s linear infinite;
+}
+
+.reefFish {
+  right: calc(var(--right-inset) + 2cqw);
+  top: 50cqh;
+  width: clamp(34px, 3cqw, 52px);
+}
+
+.reefBed {
+  right: calc(var(--right-inset) + 1.5cqw);
+  bottom: 0;
+  width: clamp(70px, 7cqw, 130px);
+}
+
+/* Palette: muted under water, never brighter than the discs on the board. */
+.groundShadow {
+  fill: rgba(2, 18, 28, 0.35);
+}
+
+.wood {
+  fill: #6b4a36;
+}
+
+.woodShade {
+  fill: #563a2a;
+}
+
+.woodLight {
+  fill: #7d5a42;
+}
+
+.gold {
+  fill: #b8933f;
+}
+
+.coin {
+  fill: #c9a24a;
+}
+
+.coinShade {
+  fill: #a8842f;
+}
+
+.inside {
+  fill: #22160f;
+}
+
+.sand {
+  fill: #3a5b56;
+}
+
+.sandLight {
+  fill: #4d6f69;
+}
+
+.bubble {
+  fill: none;
+  stroke: rgba(222, 247, 251, 0.75);
+  stroke-width: 1;
+}
+
+.stem {
+  fill: #0b3a45;
+}
+
+.blade {
+  fill: #0e4a52;
+}
+
+.horse {
+  fill: #c99c46;
+}
+
+.horseShade {
+  fill: #a57d33;
+}
+
+.horseLight {
+  fill: #ddbd6c;
+}
+
+.tail {
+  fill: none;
+  stroke: #c99c46;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.tailCurl {
+  fill: none;
+  stroke: #a57d33;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+}
+
+.eye {
+  fill: #1d1a14;
+}
+
+.eyeLight {
+  fill: #fff;
+}
+
+.schoolFish {
+  fill: #a9d6d8;
+}
+
+.schoolTail {
+  fill: #86bcc1;
+}
+
+.schoolBelly {
+  fill: #d4ecea;
+}
+
+.yellow {
+  fill: #d6ad42;
+}
+
+.yellowShade {
+  fill: #b48a2c;
+}
+
+.coralFish {
+  fill: #d48a72;
+}
+
+.coralShade {
+  fill: #b46e58;
+}
+
+.branches,
+.branchesShade,
+.anemone {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.branches {
+  stroke: #c0705a;
+  stroke-width: 5;
+}
+
+.branchesShade {
+  stroke: #9c5847;
+  stroke-width: 4.5;
+}
+
+.rock {
+  fill: #0e3f50;
+}
+
+.rockLight {
+  fill: #17566a;
+}
+
+.anemone {
+  stroke: #c98d9a;
+  stroke-width: 3.2;
+}
+
+.anemoneBase {
+  fill: #a86f7c;
+}
+
+/* Motion: transforms and opacity only; the first frame of every loop is the resting pose. */
+.lid,
+.seahorseBody,
+.fin,
+.anemone {
+  transform-box: fill-box;
+}
+
+.lid {
+  transform-origin: 100% 100%;
+  transform: rotate(6deg);
+}
+
+.glint {
+  fill: #f2d58a;
+  opacity: 0;
+  animation: glint 6.1s ease-in-out infinite;
+}
+
+.bubble {
+  opacity: 0;
+  animation: rise 9.1s ease-out infinite both;
+}
+
+.bubbleB {
+  animation-delay: 0.35s;
+}
+
+.bubbleC {
+  animation-delay: 0.7s;
+}
+
+.seahorseBody {
+  transform-origin: 6% 100%;
+  animation: bob 4.1s ease-in-out infinite;
+}
+
+.fin {
+  transform-origin: 100% 50%;
+  animation: flutter 0.45s ease-in-out infinite alternate;
+}
+
+.wave {
+  animation: wave 3.1s ease-in-out infinite alternate;
+}
+
+.patrol {
+  position: absolute;
+  right: 0;
+  animation: patrol linear infinite both;
+}
+
+.patrol svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: turn ease-in-out infinite both;
+}
+
+.patrolA {
+  top: 0;
+  width: 100%;
+}
+
+.patrolB {
+  top: 9cqh;
+  width: 80%;
+}
+
+.patrolA,
+.turnA {
+  animation-duration: 13.7s;
+}
+
+.patrolB,
+.turnB {
+  animation-duration: 17.9s;
+  animation-delay: 3s;
+}
+
+.anemone {
+  transform-origin: 30% 100%;
+  animation: anemone 5.3s ease-in-out infinite alternate;
+}
+
+@keyframes glint {
+  0%,
+  84%,
+  100% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes rise {
+  0%,
+  78% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  82% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-44px);
+  }
+}
+
+@keyframes stemSway {
+  from {
+    transform: rotate(-1.5deg);
+  }
+  to {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: rotate(-3deg) scaleY(0.93);
+  }
+}
+
+@keyframes flutter {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0.55);
+  }
+}
+
+@keyframes swim {
+  0%,
+  10% {
+    transform: translateX(-14cqw);
+  }
+  42%,
+  100% {
+    transform: translateX(104cqw);
+  }
+}
+
+@keyframes wave {
+  from {
+    transform: translateY(-1.2cqh);
+  }
+  to {
+    transform: translateY(1.2cqh);
+  }
+}
+
+/* The reef fish face left: swim left, pause and turn, swim back, turn again. */
+@keyframes patrol {
+  0%,
+  6% {
+    transform: translateX(0);
+  }
+  44%,
+  54% {
+    transform: translateX(-5cqw);
+  }
+  92%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes turn {
+  0%,
+  47% {
+    transform: scaleX(1);
+  }
+  49%,
+  95% {
+    transform: scaleX(-1);
+  }
+  97%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes anemone {
+  from {
+    transform: rotate(-4deg);
+  }
+  to {
+    transform: rotate(4deg);
+  }
+}
+
+/* Card thumbnails: chest bottom-left, seahorse bottom-right, clear of the emblem; nothing else. */
+[data-mode='thumbnail'] .school,
+[data-mode='thumbnail'] .reefFish,
+[data-mode='thumbnail'] .reefBed {
+  display: none;
+}
+
+[data-mode='thumbnail'] .chest {
+  left: 3cqw;
+  bottom: 2cqh;
+}
+
+[data-mode='thumbnail'] .seahorse {
+  left: auto;
+  right: 7cqw;
+}
+
+/* Phones: keep one hero on the game page (card thumbnails keep both). */
+@media (max-width: 599px) {
+  [data-mode='full'] .seahorse {
+    display: none;
+  }
+}

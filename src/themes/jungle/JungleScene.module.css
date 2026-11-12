@@ -1,0 +1,207 @@
+/* Rainforest light: canopy shade at the very top, a bright misty clearing in the middle distance. */
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #1b5a34 0%, #6fae45 24%, #d6e8cf 46%, #f4efc4 54%, #a9cf5e 70%, #2f7d3e 88%, #1b5a34 100%);
+}
+
+.full {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Far forest: pale, hazy trunks and foliage fading into the mist (atmospheric perspective). */
+.farPuffs {
+  fill: #c9dfbf;
+}
+
+.farTrunks {
+  fill: #b9d3ad;
+}
+
+.midFarPuffs {
+  fill: #9cc88a;
+}
+
+.midFarTrunks {
+  fill: #8db97e;
+}
+
+.farBushes {
+  fill: #6fae45;
+}
+
+.nearBushes {
+  fill: #2f7d3e;
+}
+
+/* Big trunks: a lit side and a shaded side, with moss. */
+.trunkShade {
+  fill: #2f271e;
+}
+
+.trunkLight {
+  fill: #4a3b2c;
+}
+
+.moss {
+  fill: #5c7a32;
+}
+
+/* The canopy band across the top, darkest at the top, with a few bright gaps. */
+.canopy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 34cqh;
+}
+
+.canopyTop {
+  fill: #0e2e1c;
+}
+
+.canopyMid {
+  fill: #1b5a34;
+}
+
+.canopyLow {
+  fill: #2f7d3e;
+}
+
+.sunlit {
+  fill: #6fae45;
+}
+
+.gapEdge {
+  fill: #a9cf5e;
+}
+
+.gap {
+  fill: #f4efc4;
+}
+
+.shafts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Warm golden-green light shafts whose opacity breathes between 10% and 18%. */
+.shaft {
+  position: absolute;
+  top: -20%;
+  width: 9%;
+  height: 120%;
+  background: linear-gradient(180deg, rgba(244, 239, 196, 1), rgba(244, 239, 196, 0) 80%);
+  filter: blur(18px);
+  transform: rotate(18deg);
+  transform-origin: top center;
+  opacity: 0.14;
+  will-change: opacity;
+  animation: breathe ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0.18;
+  }
+}
+
+/* Mist bands drifting across on 60–90 s loops. */
+.mist {
+  position: absolute;
+  left: -40%;
+  width: 180%;
+  height: 16%;
+  background: radial-gradient(ellipse at center, rgba(214, 232, 207, 0.6), transparent 68%);
+  filter: blur(16px);
+  will-change: transform;
+  animation: drift linear infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-10%);
+  }
+  to {
+    transform: translateX(10%);
+  }
+}
+
+/* Lianas hang from the canopy and sway a little from the top. */
+.liana {
+  position: absolute;
+  top: 8cqh;
+  aspect-ratio: 40 / 400;
+  transform-origin: 50% 0;
+  will-change: transform;
+  animation: hang ease-in-out infinite alternate;
+}
+
+.liana svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes hang {
+  from {
+    transform: rotate(-1.5deg);
+  }
+  to {
+    transform: rotate(1.5deg);
+  }
+}
+
+.vine {
+  fill: #1b5a34;
+}
+
+/* Foreground plants sway ±2° from the base of the stem. */
+.plant {
+  position: absolute;
+  aspect-ratio: 400 / 420;
+  transform-origin: 50% 100%;
+  transform: translateX(-50%) rotate(var(--rest));
+  will-change: transform;
+  animation: sway ease-in-out infinite alternate;
+}
+
+.plant svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@keyframes sway {
+  from {
+    transform: translateX(-50%) rotate(calc(var(--rest) - 2deg));
+  }
+  to {
+    transform: translateX(-50%) rotate(calc(var(--rest) + 2deg));
+  }
+}
+
+/* Two-tone greens: a sunny side and a shaded side, never black silhouettes. */
+.light {
+  fill: #6fae45;
+}
+
+.shade {
+  fill: #2f7d3e;
+}
+
+.bract {
+  fill: #c8323c;
+}
+
+.bractTip {
+  fill: #a9cf5e;
+}

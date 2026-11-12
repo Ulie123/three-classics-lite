@@ -1,0 +1,99 @@
+/* In the gap between the board and the side panel, low down among the near pines. */
+.cabin {
+  position: absolute;
+  right: calc(var(--right-inset) + 2cqw);
+  bottom: 7cqh;
+  width: clamp(70px, 6.5cqw, 120px);
+}
+
+.cabin svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.log {
+  fill: #6b4a36;
+}
+
+.logDark {
+  fill: #5a3d2c;
+}
+
+.roof,
+.door {
+  fill: #4a3527;
+}
+
+.stone {
+  fill: #4d4a52;
+}
+
+.snow {
+  fill: #eef3f8;
+}
+
+.snowShade {
+  fill: #b9cbe0;
+}
+
+/* The lamp-lit window: the theme's warm accent, flickering only slightly. */
+.window {
+  fill: #f2c48d;
+  animation: flicker 3.7s ease-in-out infinite;
+}
+
+.puff {
+  fill: #c9d4e3;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: smoke 7.9s ease-out infinite both;
+}
+
+.puffB {
+  animation-delay: 2.6s;
+}
+
+.puffC {
+  animation-delay: 5.2s;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  31% {
+    opacity: 0.88;
+  }
+  37% {
+    opacity: 0.97;
+  }
+  64% {
+    opacity: 0.9;
+  }
+}
+
+/* Each puff rises, drifts right, swells and fades: a slow curl from the chimney. */
+@keyframes smoke {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.6);
+  }
+  15% {
+    opacity: 0.6;
+  }
+  55% {
+    transform: translate(6px, -14px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(2px, -30px) scale(1.8);
+  }
+}
+
+[data-mode='thumbnail'] .cabin {
+  display: none;
+}

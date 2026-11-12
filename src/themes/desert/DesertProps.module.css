@@ -1,0 +1,203 @@
+/* Placement: the backgammon board is wide, so the left gutter is narrow (about 100px at 1440 × 900).
+   Tall, narrow saguaro on the left; small things low down. */
+[data-scene='desert'][data-mode] {
+  --board-half: 524px;
+}
+
+.saguaro,
+.skull,
+.pear,
+.tumbleweed {
+  position: absolute;
+  --saguaro-w: clamp(56px, 6cqw, 104px);
+  --skull-w: clamp(48px, 5cqw, 90px);
+}
+
+.saguaro svg,
+.skull svg,
+.pear svg,
+.tumbleweed svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.saguaro {
+  left: max(0.6cqw, calc(var(--gutter-mid) - var(--saguaro-w) / 2));
+  bottom: 5cqh;
+  width: var(--saguaro-w);
+}
+
+.skull {
+  left: max(1cqw, calc(var(--gutter-mid) - var(--skull-w) / 2 + 2cqw));
+  bottom: 0;
+  width: var(--skull-w);
+}
+
+.pear {
+  right: calc(var(--right-inset) + 0.5cqw);
+  bottom: 1cqh;
+  width: clamp(48px, 4.5cqw, 84px);
+}
+
+.tumbleweed {
+  left: 0;
+  bottom: 1.5cqh;
+  width: clamp(28px, 2.6cqw, 48px);
+  animation: tumble 31.7s linear infinite;
+}
+
+/* Palette: sage cactus, bleached bone, terracotta sand. */
+.groundShadow {
+  fill: rgba(122, 50, 20, 0.3);
+}
+
+.cactus,
+.paddle {
+  fill: #7c8257;
+}
+
+.cactusShade,
+.paddleShade {
+  fill: #5e6444;
+}
+
+.cactusLight,
+.paddleLight {
+  fill: #8f956a;
+}
+
+.arm,
+.armLight,
+.twigs {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arm {
+  stroke: #7c8257;
+}
+
+.armLight {
+  stroke: #8f956a;
+}
+
+.bone {
+  fill: #f6efe2;
+}
+
+.boneShade {
+  fill: #d9c9b0;
+}
+
+.horn {
+  fill: #e6d8bf;
+}
+
+.socket {
+  fill: #5a2e1b;
+}
+
+.sand {
+  fill: #b5562a;
+}
+
+.sandLight {
+  fill: #c4683a;
+}
+
+/* Behind a board the dunes are desaturated more than props, so the skull's sand is pre-muted to match. */
+[data-scrim='true'] .sand {
+  fill: #9d5c3e;
+}
+
+[data-scrim='true'] .sandLight {
+  fill: #ac6d4e;
+}
+
+.petal {
+  fill: #d98a98;
+}
+
+.flowerHeart {
+  fill: #e8c46a;
+}
+
+.weed {
+  fill: #a9824f;
+}
+
+.twigs {
+  stroke: #c9a473;
+  stroke-width: 2.4;
+}
+
+.gap {
+  fill: #8a6a40;
+}
+
+/* Motion: the tumbleweed rolls across in about seven seconds, then waits off-screen. */
+.bounce {
+  animation: hop 0.8s ease-in-out infinite;
+}
+
+.roll {
+  transform-origin: center;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes tumble {
+  0%,
+  7.3% {
+    transform: translateX(-8cqw);
+  }
+  31% {
+    transform: translateX(106cqw);
+  }
+  100% {
+    transform: translateX(106cqw);
+  }
+}
+
+@keyframes hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Card thumbnails: the saguaro on the right, the skull bottom left, the tumbleweed on hover. */
+[data-mode='thumbnail'] .saguaro {
+  left: auto;
+  right: 5cqw;
+  bottom: 6cqh;
+  width: 22cqw;
+}
+
+[data-mode='thumbnail'] .skull {
+  left: 4cqw;
+  bottom: 1cqh;
+  width: 22cqw;
+}
+
+[data-mode='thumbnail'] .pear {
+  display: none;
+}
+
+/* Phones: keep one hero on the game page (card thumbnails keep both). */
+@media (max-width: 599px) {
+  [data-mode='full'] .skull {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+/* Jungle (home). Accents: lagoon teal, and bird-of-paradise orange used sparingly. */
+[data-theme='jungle'] {
+  --ui-bg: #0f2619;
+  --ui-surface: #f4f1e8;
+  --ui-surface-2: #e7e2d4;
+  --ui-text: #0f2619;
+  --ui-text-muted: #4a5d50;
+  --ui-border: rgba(15, 38, 25, 0.14);
+  --ui-accent: #287a72;
+  --ui-accent-text: #ffffff;
+  --ui-focus: #e8742c;
+  --ui-scrim: rgba(8, 22, 14, 0.5);
+
+  --jg-cream: #f4f1e8;
+  --jg-orange: #e8742c;
+  --jg-teal: #287a72;
+}

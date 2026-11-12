@@ -1,0 +1,90 @@
+/* Mid-ground, left of the cards: from below the canopy down to the forest floor. */
+.waterfall {
+  position: absolute;
+  left: 5cqw;
+  top: 30cqh;
+  width: clamp(96px, 8.5cqw, 176px);
+}
+
+.waterfall svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.rock {
+  fill: #7c836b;
+}
+
+.rockShade {
+  fill: #5b6150;
+}
+
+.moss {
+  fill: #6b8e3a;
+}
+
+.water {
+  fill: #a7d8cc;
+}
+
+.streak {
+  fill: #d6e8cf;
+}
+
+/* The water falls: the dash pattern slides down by exactly one repeat, then loops. */
+.flow {
+  animation: flow linear infinite;
+}
+
+@keyframes flow {
+  to {
+    transform: translateY(24px);
+  }
+}
+
+/* Soft mist where each drop lands (a static blur, never animated). */
+.mist {
+  fill: #d6e8cf;
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+.pool {
+  fill: #a7d8cc;
+}
+
+.ripple {
+  fill: #d6e8cf;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ripple ease-in-out infinite alternate;
+}
+
+.rippleA {
+  animation-duration: 3.7s;
+}
+
+.rippleB {
+  animation-duration: 5.3s;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+.leafShade {
+  fill: #2f7d3e;
+}
+
+.leafLight {
+  fill: #6fae45;
+}

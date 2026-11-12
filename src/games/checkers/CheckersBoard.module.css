@@ -1,0 +1,158 @@
+.board {
+  display: block;
+  overflow: visible;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.frame {
+  fill: var(--ck-frame);
+}
+
+.light {
+  fill: var(--ck-light);
+}
+
+.dark {
+  fill: var(--ck-dark);
+}
+
+.last {
+  fill: none;
+  stroke: var(--ck-lamp);
+  stroke-width: 4;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.mustCapture {
+  fill: none;
+  stroke: var(--ck-lamp);
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+  pointer-events: none;
+}
+
+.piece {
+  pointer-events: none;
+}
+
+.selected {
+  transition: transform var(--dur-piece) var(--ease);
+}
+
+/* Lift: scale and a deeper shadow, transform only. */
+.lift {
+  transform: scale(1.06);
+}
+
+.moving {
+  transition: transform 300ms var(--ease);
+}
+
+.taken {
+  opacity: 0.35;
+}
+
+.captured {
+  animation: captured 280ms var(--ease) both;
+  pointer-events: none;
+}
+
+@keyframes captured {
+  to {
+    opacity: 0;
+    scale: 0.4;
+  }
+}
+
+.crownDrop {
+  animation: crown 320ms var(--ease) both;
+}
+
+@keyframes crown {
+  from {
+    opacity: 0;
+    translate: 0 -22px;
+  }
+}
+
+.sparkle line {
+  stroke: #fbfdff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: sparkle 650ms var(--ease) 120ms both;
+}
+
+@keyframes sparkle {
+  30% {
+    opacity: 0.95;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.target {
+  fill: var(--ck-lamp);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.targetRing {
+  fill: none;
+  stroke: var(--ck-lamp);
+  stroke-width: 5;
+  pointer-events: none;
+}
+
+.shake {
+  animation: shake 300ms var(--ease);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    translate: 0;
+  }
+  25% {
+    translate: -7px;
+  }
+  75% {
+    translate: 7px;
+  }
+}
+
+.hit {
+  cursor: pointer;
+  outline: none;
+}
+
+.focusRing {
+  fill: none;
+  stroke: var(--ui-focus);
+  stroke-width: 4;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hit:focus-visible .focusRing {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moving,
+  .selected {
+    transition: opacity 120ms linear;
+  }
+
+  .captured {
+    animation-duration: 120ms;
+  }
+
+  .crownDrop,
+  .sparkle line {
+    animation: none;
+  }
+}

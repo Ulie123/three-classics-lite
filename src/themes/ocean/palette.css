@@ -1,0 +1,20 @@
+/* Ocean (Connect Four). Accents: coral and sand-gold, which are also the two disc colours. */
+[data-theme='ocean'] {
+  --ui-bg: #04202f;
+  --ui-surface: #072b3b;
+  --ui-surface-2: #0d3b4f;
+  --ui-text: #e9f6f8;
+  --ui-text-muted: #9cc6ce;
+  --ui-border: rgba(156, 222, 230, 0.16);
+  --ui-accent: #5cc8d0;
+  --ui-accent-text: #04202f;
+  --ui-focus: #f2c14e;
+  --ui-scrim: rgba(2, 18, 28, 0.58);
+
+  --c4-frame: #0d3b4f;
+  --c4-hole: #062a38;
+  --c4-coral: #ff7a5c;
+  --c4-coral-ring: #d9573b;
+  --c4-gold: #f2c14e;
+  --c4-gold-ring: #c99a2a;
+}

@@ -1,0 +1,22 @@
+/* Winter (Checkers). Accents: warm lamp for highlights, ice for edges. */
+[data-theme='winter'] {
+  --ui-bg: #1f2f4d;
+  --ui-surface: #18243b;
+  --ui-surface-2: #22324a;
+  --ui-text: #eef3f8;
+  --ui-text-muted: #a9bdd6;
+  --ui-border: rgba(201, 216, 234, 0.16);
+  --ui-accent: #f2c48d;
+  --ui-accent-text: #2a1a08;
+  --ui-focus: #f2c48d;
+  --ui-scrim: rgba(10, 18, 34, 0.5);
+
+  --ck-light: #e6eef6;
+  --ck-dark: #3b5573;
+  --ck-frame: #22324a;
+  --ck-dark-piece: #151d2b;
+  --ck-dark-rim: rgba(201, 216, 234, 0.6);
+  --ck-light-piece: #fbfdff;
+  --ck-light-rim: #a9c6e2;
+  --ck-lamp: #f2c48d;
+}

@@ -1,0 +1,108 @@
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.reason {
+  margin-top: var(--space-2);
+  color: var(--ui-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.actions > [role='radiogroup'] {
+  width: 100%;
+}
+
+.primary {
+  height: 44px;
+  font-size: var(--text-md);
+}
+
+.flourish {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.flourish span {
+  position: absolute;
+  left: var(--x);
+  opacity: 0;
+  animation-duration: 2.2s;
+  animation-delay: calc(var(--i) * 70ms);
+  animation-fill-mode: both;
+  animation-timing-function: var(--ease);
+}
+
+.bubbles span {
+  bottom: -20px;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid rgba(222, 247, 251, 0.6);
+  border-radius: 50%;
+  animation-name: rise;
+}
+
+.snow span {
+  top: -12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(251, 253, 255, 0.85);
+  animation-name: fall;
+}
+
+.sand span {
+  top: calc(30% + var(--i) * 3%);
+  left: -10px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(243, 196, 154, 0.85);
+  animation-name: gust;
+}
+
+@keyframes rise {
+  10% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-70vh);
+  }
+}
+
+@keyframes fall {
+  10% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate(6vw, 70vh);
+  }
+}
+
+@keyframes gust {
+  10% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate(90vw, -4vh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flourish {
+    display: none;
+  }
+}

@@ -1,0 +1,63 @@
+/* Bottom left: most of it shows in the left gutter, the rest runs under the board. */
+.lake {
+  position: absolute;
+  left: -6cqw;
+  bottom: 2cqh;
+  width: clamp(240px, 32cqw, 600px);
+}
+
+.lake svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ice {
+  fill: #c9dcee;
+}
+
+.deep {
+  fill: #b8cfe6;
+}
+
+.reflection {
+  fill: #9fb7d3;
+  opacity: 0.35;
+}
+
+.crack {
+  fill: none;
+  stroke: #eef3f8;
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lip {
+  fill: #eef3f8;
+}
+
+/* A pale band of light sweeps across the ice about every twelve seconds. */
+.glint {
+  fill: #fbfdff;
+  opacity: 0.55;
+  animation: sweep 12.3s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0%,
+  84% {
+    transform: translateX(0);
+  }
+  98%,
+  100% {
+    transform: translateX(560px);
+  }
+}
+
+[data-mode='thumbnail'] .lake {
+  left: -14cqw;
+  bottom: 3cqh;
+  width: 90cqw;
+}

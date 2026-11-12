@@ -1,0 +1,160 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--ui-bg);
+}
+
+/* The scene stays put behind the content, even when the cards scroll on a phone. */
+.page > [data-scene] {
+  position: fixed;
+}
+
+.settings {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  color: var(--jg-cream);
+  --ui-text: var(--jg-cream);
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-7) var(--space-4) var(--space-6);
+}
+
+.header {
+  text-align: center;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--jg-cream);
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin-top: var(--space-2);
+  color: rgba(244, 241, 232, 0.82);
+  font-size: var(--text-md);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  gap: var(--space-6);
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--jg-cream) 92%, transparent);
+  color: var(--ui-text);
+  text-decoration: none;
+  box-shadow: 0 14px 32px rgba(4, 16, 9, 0.35);
+  transition: transform var(--dur-base) var(--ease);
+}
+
+/* Lift on hover or focus: transform only, so nothing around it moves. */
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-6px);
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--jg-orange);
+  outline-offset: 3px;
+}
+
+.window {
+  position: relative;
+  aspect-ratio: 5 / 6;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.emblem {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-4);
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: rgba(8, 20, 14, 0.45);
+  transform: translateX(-50%);
+}
+
+.emblem svg {
+  width: 30px;
+  height: 30px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.name {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.description {
+  color: var(--ui-text-muted);
+  font-size: var(--text-sm);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-3);
+}
+
+.record {
+  color: var(--ui-text-muted);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.play {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--jg-teal);
+  color: #ffffff;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .cards {
+    grid-template-columns: minmax(0, 340px);
+  }
+
+  .main {
+    padding-top: var(--space-6);
+  }
+}

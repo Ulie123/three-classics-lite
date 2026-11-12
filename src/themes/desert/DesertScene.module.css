@@ -1,0 +1,79 @@
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #a993bd 0%, #b9a3c9 22%, #e2b4a8 48%, #f3c49a 66%, #f0c79e 100%);
+}
+
+/* A low, pale sun just above the far dunes. */
+.sun {
+  position: absolute;
+  left: 62%;
+  top: 46%;
+  width: 11vmin;
+  height: 11vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 244, 222, 0.95) 0%, rgba(255, 236, 206, 0.6) 45%, transparent 72%);
+}
+
+.dunes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Atmospheric perspective: the mesa and the farthest dunes are palest. */
+.mesa {
+  fill: #cf9483;
+}
+
+.mesaShade {
+  fill: #bd8273;
+}
+
+.farSaguaro {
+  fill: none;
+  stroke: #c39272;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.far {
+  fill: #e9b98a;
+  opacity: 0.8;
+}
+
+.mid {
+  fill: #d98a52;
+}
+
+.ridge {
+  fill: #f0c79e;
+  opacity: 0.5;
+}
+
+.near {
+  fill: #b5562a;
+}
+
+/* Very slow haze drifting over the dunes. */
+.haze {
+  position: absolute;
+  left: -30%;
+  top: 48%;
+  width: 160%;
+  height: 22%;
+  background: radial-gradient(ellipse at center, rgba(255, 236, 214, 0.35), transparent 70%);
+  filter: blur(18px);
+  will-change: transform;
+  animation: haze 90s ease-in-out infinite alternate;
+}
+
+@keyframes haze {
+  from {
+    transform: translateX(-6%);
+  }
+  to {
+    transform: translateX(6%);
+  }
+}

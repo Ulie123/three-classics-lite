@@ -1,0 +1,24 @@
+/* Desert (Backgammon). Accents: terracotta and sand. */
+[data-theme='desert'] {
+  --ui-bg: #3a2318;
+  --ui-surface: #34200f;
+  --ui-surface-2: #4a2d1f;
+  --ui-text: #f6efe2;
+  --ui-text-muted: #d9c3a5;
+  --ui-border: rgba(246, 239, 226, 0.16);
+  --ui-accent: #e8cfa4;
+  --ui-accent-text: #2b1a12;
+  --ui-focus: #f3c49a;
+  --ui-scrim: rgba(44, 22, 12, 0.45);
+
+  --bg-frame: #5a2e1b;
+  --bg-field: #e8cfa4;
+  --bg-point-a: #c4562a;
+  --bg-point-b: #8a5a3b;
+  --bg-ivory: #f6efe2;
+  --bg-ivory-rim: #c9b393;
+  --bg-obsidian: #2b1a12;
+  --bg-obsidian-rim: #a07c60;
+  --bg-glow: rgba(255, 246, 222, 0.75);
+  --bg-mark: #f3c49a;
+}

@@ -1,0 +1,147 @@
+.board {
+  display: block;
+  overflow: visible;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.frame {
+  fill: var(--bg-frame);
+}
+
+.field {
+  fill: var(--bg-field);
+}
+
+.tray {
+  fill: color-mix(in srgb, var(--bg-frame) 70%, black);
+}
+
+.trayDivider {
+  stroke: rgba(246, 239, 226, 0.2);
+  stroke-width: 2;
+}
+
+.pointA {
+  fill: var(--bg-point-a);
+}
+
+.pointB {
+  fill: var(--bg-point-b);
+}
+
+/* Legal destinations glow softly. */
+.glow {
+  fill: var(--bg-glow);
+  pointer-events: none;
+  animation: glow 1.6s ease-in-out infinite alternate;
+}
+
+.trayGlow {
+  fill: rgba(255, 246, 222, 0.28);
+  stroke: var(--bg-mark);
+  stroke-width: 3;
+  pointer-events: none;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+.lastMark {
+  fill: var(--bg-mark);
+  pointer-events: none;
+}
+
+.checker {
+  pointer-events: none;
+  transition: transform 340ms var(--ease);
+}
+
+.lifted {
+  transform: scale(1.06);
+}
+
+.movable {
+  fill: none;
+  stroke: var(--bg-frame);
+  stroke-width: 3;
+  stroke-dasharray: 7 6;
+}
+
+.badgeDark,
+.badgeLight {
+  font-family: var(--font-ui);
+  font-size: 24px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.badgeDark {
+  fill: var(--bg-obsidian);
+}
+
+.badgeLight {
+  fill: var(--bg-ivory);
+}
+
+.trayCount {
+  fill: var(--bg-field);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.shake {
+  animation: shake 300ms var(--ease);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    translate: 0;
+  }
+  25% {
+    translate: -7px;
+  }
+  75% {
+    translate: 7px;
+  }
+}
+
+.hit {
+  cursor: pointer;
+  outline: none;
+}
+
+.focusRing {
+  fill: none;
+  stroke: var(--ui-focus);
+  stroke-width: 4;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hit:focus-visible .focusRing {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checker {
+    transition: none;
+  }
+
+  .glow {
+    animation: none;
+  }
+}

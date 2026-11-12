@@ -1,0 +1,158 @@
+.depth {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #5cc8d0 0%, #138a9e 22%, #0b4f63 60%, #04202f 100%);
+}
+
+.rays {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ray {
+  position: absolute;
+  top: -12%;
+  height: 115%;
+  background: linear-gradient(180deg, rgba(230, 251, 255, 0.3) 0%, rgba(230, 251, 255, 0.08) 55%, transparent 85%);
+  filter: blur(14px);
+  transform-origin: 50% 0;
+  transform: rotate(var(--tilt));
+  will-change: transform, opacity;
+  animation: ray ease-in-out infinite alternate;
+}
+
+@keyframes ray {
+  from {
+    transform: rotate(calc(var(--tilt) - 3deg));
+    opacity: 0.6;
+  }
+  to {
+    transform: rotate(calc(var(--tilt) + 3deg));
+    opacity: 1;
+  }
+}
+
+/* A faint caustic band right under the surface. */
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 140%;
+  height: 14%;
+  background: repeating-linear-gradient(
+    100deg,
+    transparent 0 46px,
+    rgba(255, 255, 255, 0.1) 46px 50px,
+    transparent 50px 96px,
+    rgba(255, 255, 255, 0.06) 96px 99px
+  );
+  mask-image: linear-gradient(180deg, black, transparent);
+  will-change: transform;
+  animation: shimmer 28s linear infinite alternate;
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(8%);
+  }
+}
+
+/* A faint manta crossing about once a minute. */
+.manta {
+  position: absolute;
+  top: 26%;
+  left: 0;
+  width: 160px;
+  opacity: 0.12;
+  will-change: transform;
+  animation: manta 64s linear infinite;
+  animation-delay: -20s;
+}
+
+.manta svg {
+  display: block;
+  width: 100%;
+  fill: #021620;
+}
+
+@keyframes manta {
+  from {
+    transform: translate(-20cqw, 0) rotate(-4deg);
+  }
+  50% {
+    transform: translate(50cqw, 6cqh) rotate(2deg);
+  }
+  to {
+    transform: translate(120cqw, -2cqh) rotate(-3deg);
+  }
+}
+
+.reefs {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.reefFar {
+  fill: #0b4f63;
+  opacity: 0.55;
+}
+
+.reefNear {
+  fill: #031a26;
+}
+
+/* Sand, shells and a starfish: muted, so they sit under the water rather than on top of it. */
+.sand {
+  fill: #3f625d;
+}
+
+.sandLip {
+  fill: #557a73;
+}
+
+.shell {
+  fill: #8f8a7c;
+}
+
+.shellLight {
+  fill: #b3ab98;
+}
+
+.starfish {
+  fill: #a8604c;
+  stroke: #a8604c;
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.kelp {
+  position: absolute;
+  bottom: -2%;
+  width: 3.2cqh;
+  transform-origin: 50% 100%;
+  will-change: transform;
+  animation: sway ease-in-out infinite alternate;
+}
+
+.kelp svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #052433;
+}
+
+@keyframes sway {
+  from {
+    transform: rotate(-2.5deg);
+  }
+  to {
+    transform: rotate(2.5deg);
+  }
+}
+
+[data-mode='thumbnail'] .manta {
+  display: none;
+}
