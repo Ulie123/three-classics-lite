@@ -24,3 +24,10 @@ gzip -9 -c golden.json > src/engine/golden/java-games.json.gz
 ```
 
 The three numbers are how many Connect Four, checkers and backgammon games to play.
+
+`HardCheck` prints the Hard computer's choice for seven opening rolls; `ai.test.ts` expects the
+TypeScript port to pick the same moves:
+
+```bash
+java -cp "tools/golden/out;$CP" com.threeclassics.backgammon.HardCheck
+```

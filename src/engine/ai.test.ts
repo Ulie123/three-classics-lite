@@ -97,6 +97,24 @@ describe('Backgammon computer', () => {
     expect(chosen.steps.some((s) => s.hit)).toBe(true);
   });
 
+  it('picks the same Hard openings as the Java computer', () => {
+    // Expected moves from BackgammonAi.java on the same positions (tools/golden, HardCheck).
+    const java: Record<string, string> = {
+      '6,5': '6–5: 13/7 7/2',
+      '3,1': '3–1: 8/5 6/5',
+      '6,1': '6–1: 13/7 8/7',
+      '4,2': '4–2: 8/4 6/4',
+      '5,3': '5–3: 8/3 6/3',
+      '6,4': '6–4: 8/2 6/2',
+      '2,1': '2–1: 13/11 11/10',
+    };
+    for (const [roll, expected] of Object.entries(java)) {
+      const [a, b] = roll.split(',').map(Number);
+      const chosen = backgammonAi.chooseMove(opening(a, b), 'HARD', seededRng(1), 5000);
+      expect(backgammonEngine.notation(chosen)).toBe(expected);
+    }
+  });
+
   it('makes the 5-point with a 3-1 on Medium', () => {
     const state = opening(3, 1);
     const after = backgammonEngine.apply(state, backgammonAi.chooseMove(state, 'MEDIUM', seededRng(1), BUDGET), dice());
